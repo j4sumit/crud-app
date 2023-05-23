@@ -1,11 +1,14 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+
 
 function Create() {
 
     const [name, setName] = useState('');
     const [age, setAge] = useState('');
     const [email, setEmail] = useState('');
+    const navigate = useNavigate();
 
  
  const  handleSubmit=(e) => {
@@ -14,13 +17,23 @@ function Create() {
         e_name: name,
         e_age: age,
         e_email: email
-    })
+    }).then(()=>{
+        navigate('/')
+    }).catch((err) => {
+        console.log(err)
+    });
 }
 
     return (
         <>
             <div className='row'>
                 <div className='col-md-4'>
+                <div className='mb-2 mt-2'>
+                <Link to='/'>
+                    <button className='btn btn-primary'>Read Data</button>
+                </Link>
+            </div>
+
                     <div className='bg-primary p-4 text-center'>
                         <h1>Create Data</h1>
                     </div>
