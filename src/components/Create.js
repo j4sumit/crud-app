@@ -2,15 +2,12 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 
-
 function Create() {
 
     const [name, setName] = useState('');
     const [age, setAge] = useState('');
     const [email, setEmail] = useState('');
     const navigate = useNavigate();
-
- 
  const  handleSubmit=(e) => {
     e.preventDefault();
     axios.post("https://646c951c7b42c06c3b2b91d7.mockapi.io/crud",{
@@ -23,7 +20,6 @@ function Create() {
         console.log(err)
     });
 }
-
     return (
         <>
             <div className='row'>

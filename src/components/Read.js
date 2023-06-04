@@ -7,7 +7,7 @@ function Read() {
     const [apiData, setApiData] = useState([])
 
     function getData() {
-        axios.get('https://63b3f7299f50390584a2c2aa.mockapi.io/crud')
+        axios.get('https://646c951c7b42c06c3b2b91d7.mockapi.io/crud')
             .then((response) => {
                 setApiData(response.data);
             }).catch((err) => {
@@ -16,7 +16,7 @@ function Read() {
     }
 
     function handleDelete(id) {
-        axios.delete(`https://63b3f7299f50390584a2c2aa.mockapi.io/crud/${id}`)
+        axios.delete(`https://646c951c7b42c06c3b2b91d7.mockapi.io/crud/${id}`)
             .then(() => {
                 getData();
             }).catch((err) => {
@@ -24,17 +24,16 @@ function Read() {
             });
     }
 
+    useEffect(() => {
+        getData();
+    }, [])
+
     function setDataToStorage(id, name, age, email) {
         localStorage.setItem('id', id);
         localStorage.setItem('name', name);
         localStorage.setItem('age', age);
         localStorage.setItem('email', email);
     }
-
-    useEffect(() => {
-        getData();
-    }, [])
-
 
     return (
         <>
